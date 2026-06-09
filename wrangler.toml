@@ -7,7 +7,7 @@ pages_build_output_dir = ".open-next"
 [[d1_databases]]
 binding = "DB"
 database_name = "khanom-station-549"
-database_id = "PLACEHOLDER_DB_ID"
+database_id = "ca526e8d-f2b9-4d14-a718-40cba20bea38"
 migrations_dir = "drizzle"
 
 # CMS media bucket — created once via:
