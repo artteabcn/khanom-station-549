@@ -1,0 +1,27 @@
+name = "khanom-station-549"
+compatibility_date = "2025-04-01"
+compatibility_flags = ["nodejs_compat"]
+
+pages_build_output_dir = ".open-next"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "khanom-station-549"
+database_id = "PLACEHOLDER_DB_ID"
+migrations_dir = "drizzle"
+
+# CMS media bucket — created once via:
+#   wrangler r2 bucket create khanomstation549-media
+# Public objects are served from MEDIA_PUBLIC_URL (env var pointing at the
+# R2 public bucket URL or a custom domain like media.khanom-station-549.com).
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "khanomstation549-media"
+
+[vars]
+# Comma-separated — owner-email.ts splits on "," to notify all recipients
+OWNER_EMAIL = "hello@khanom-station-549.com"
+OWNER_FROM_EMAIL = "hello@khanom-station-549.com"
+
+[dev]
+port = 8788
