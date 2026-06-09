@@ -137,7 +137,7 @@ export function renderBookingConfirmation(input: BookingConfirmationInput): {
     <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="560" style="background:#ffffff;border-radius:16px;overflow:hidden;max-width:560px;width:100%;box-shadow:0 1px 2px rgba(15,123,110,0.06);">
       <tr><td style="background:#0d6b6b;padding:36px 32px 28px;text-align:center;">
         <h1 style="margin:0;color:#ffffff;font-size:32px;font-weight:300;letter-spacing:1.5px;line-height:1;">Khanom Station 549</h1>
-        <p style="margin:8px 0 0;color:rgba(255,255,255,0.85);font-size:11px;letter-spacing:3px;text-transform:uppercase;">Koh Samui</p>
+        <p style="margin:8px 0 0;color:rgba(255,255,255,0.85);font-size:11px;letter-spacing:3px;text-transform:uppercase;">Nakhon Si Thammarat</p>
       </td></tr>
       <tr><td style="padding:36px 36px 0;">
         <h2 style="margin:0;font-family:'Merriweather',Georgia,serif;font-weight:500;font-size:28px;color:#c47f17;line-height:1.2;">${greeting}</h2>
