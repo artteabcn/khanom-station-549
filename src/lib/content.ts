@@ -25,20 +25,10 @@ export interface ImageInfo {
   height: number | null;
 }
 
-// MEDIA_PUBLIC_URL is the public hostname/prefix for the R2 bucket — e.g.
-// "https://pub-abc123.r2.dev" or "https://media.khanom-station-549.com".
-// Set in Cloudflare Pages env vars (production).
-function mediaPublicUrl(): string {
-  const url = process.env.MEDIA_PUBLIC_URL;
-  if (!url) return "";
-  return url.endsWith("/") ? url.slice(0, -1) : url;
-}
-
 function imageInfoFromRow(row: ContentImage): ImageInfo {
-  const base = mediaPublicUrl();
   return {
     slot: row.slot,
-    url: base ? `${base}/${row.r2Key}` : `/${row.r2Key}`,
+    url: `/api/media/${row.r2Key}`,
     alt: row.alt,
     width: row.width,
     height: row.height,
