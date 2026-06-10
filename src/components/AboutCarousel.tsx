@@ -4,21 +4,20 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-interface Slide {
-  src: string;
-  alt: string;
-}
-
-const SLIDES: Slide[] = [
-  { src: "/images/main3.jpeg", alt: "Khanom Station 549 nestled in the tropical garden" },
-  { src: "/images/main2.jpeg", alt: "Outdoor lounge by the pool" },
-  { src: "/images/main4.jpeg", alt: "Pink poolside with seating" },
-  { src: "/images/room.jpeg", alt: "Bright bedroom with garden access" },
+const FALLBACK_SLIDES = [
+  "/images/main2.jpeg",
+  "/images/main3.jpeg",
+  "/images/main4.jpeg",
+  "/images/room.jpeg",
 ];
+
+interface AboutCarouselProps {
+  slides?: string[];
+}
 
 const INTERVAL_MS = 5000;
 
-export default function AboutCarousel(): React.JSX.Element {
+export default function AboutCarousel({ slides = FALLBACK_SLIDES }: AboutCarouselProps): React.JSX.Element {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -39,11 +38,11 @@ export default function AboutCarousel(): React.JSX.Element {
       aria-roledescription="carousel"
       aria-label="Khanom Station 549 photos"
     >
-      {SLIDES.map((slide, i) => (
+      {slides.map((src, i) => (
         <Image
-          key={slide.src}
-          src={slide.src}
-          alt={slide.alt}
+          key={src}
+          src={src}
+          alt={`Property photo ${i + 1}`}
           fill
           sizes="(max-width: 1024px) 100vw, 50vw"
           className={cn(
@@ -51,18 +50,19 @@ export default function AboutCarousel(): React.JSX.Element {
             i === active ? "opacity-100" : "opacity-0"
           )}
           priority={i === 0}
+          unoptimized
         />
       ))}
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/45 to-transparent" />
 
       <div className="absolute right-4 bottom-4 flex items-center gap-2">
-        {SLIDES.map((_, i) => (
+        {slides.map((_, i) => (
           <button
             key={i}
             type="button"
             onClick={() => setActive(i)}
-            aria-label={`Show photo ${i + 1} of ${SLIDES.length}`}
+            aria-label={`Show photo ${i + 1} of ${slides.length}`}
             aria-current={i === active}
             className={cn(
               "h-2 rounded-full bg-white/70 transition-all duration-300 hover:bg-white",

@@ -1,9 +1,17 @@
 import React from "react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { getImageUrl } from "@/lib/content";
 import AboutCarousel from "./AboutCarousel";
 
-export default function AboutSection(): React.JSX.Element {
-  const t = useTranslations("about");
+export default async function AboutSection(): Promise<React.JSX.Element> {
+  const t = await getTranslations("about");
+
+  const slides = await Promise.all([
+    getImageUrl("gallery.1", "/images/main2.jpeg"),
+    getImageUrl("gallery.2", "/images/main3.jpeg"),
+    getImageUrl("gallery.3", "/images/main4.jpeg"),
+    getImageUrl("gallery.4", "/images/room.jpeg"),
+  ]);
 
   const stats = [
     { value: t("stat1Value"), label: t("stat1Label") },
@@ -15,7 +23,7 @@ export default function AboutSection(): React.JSX.Element {
     <section id="about" className="bg-brand-cream py-20">
       <div className="mx-auto max-w-7xl px-8">
         <div className="grid gap-20 lg:grid-cols-2 lg:items-center">
-          <AboutCarousel />
+          <AboutCarousel slides={slides} />
 
           <div>
             <p className="section-label">{t("label")}</p>
