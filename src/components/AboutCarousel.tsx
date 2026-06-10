@@ -24,7 +24,7 @@ export default function AboutCarousel({ slides = FALLBACK_SLIDES }: AboutCarouse
   useEffect(() => {
     if (paused) return;
     const id = window.setInterval(() => {
-      setActive((a) => (a + 1) % SLIDES.length);
+      setActive((a) => (a + 1) % slides.length);
     }, INTERVAL_MS);
     return (): void => window.clearInterval(id);
   }, [paused]);
