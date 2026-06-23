@@ -24,7 +24,7 @@ export default function AboutCarousel({ slides = FALLBACK_SLIDES }: AboutCarouse
   useEffect(() => {
     if (paused) return;
     const id = window.setInterval(() => {
-      setActive((a) => (a + 1) % slides.length);
+      setActive((a) => (a + 1) % SLIDES.length);
     }, INTERVAL_MS);
     return (): void => window.clearInterval(id);
   }, [paused]);
@@ -62,7 +62,7 @@ export default function AboutCarousel({ slides = FALLBACK_SLIDES }: AboutCarouse
             key={i}
             type="button"
             onClick={() => setActive(i)}
-            aria-label={`Show photo ${i + 1} of ${slides.length}`}
+            aria-label={`Show photo ${i + 1} of ${SLIDES.length}`}
             aria-current={i === active}
             className={cn(
               "h-2 rounded-full bg-white/70 transition-all duration-300 hover:bg-white",
