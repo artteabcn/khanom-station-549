@@ -35,6 +35,8 @@ export const bookings = sqliteTable("bookings", {
   updatedAt: text("updated_at")
     .notNull()
     .default(sql`(datetime('now'))`),
+  arkadyaFeeThb: integer("arkadya_fee_thb").notNull().default(0),
+  ownerPayoutThb: integer("owner_payout_thb").notNull().default(0),
 });
 
 // CMS content overrides — text snippets keyed by (locale, path).
@@ -97,8 +99,6 @@ export const paidServices = sqliteTable("paid_services", {
     .notNull()
     .default(sql`(datetime('now'))`),
   updatedAt: text("updated_at")
-  arkadyaFeeThb: integer("arkadya_fee_thb").notNull().default(0),
-  ownerPayoutThb: integer("owner_payout_thb").notNull().default(0),
     .notNull()
     .default(sql`(datetime('now'))`),
 });
