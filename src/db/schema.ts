@@ -133,3 +133,14 @@ export const blockedDates = sqliteTable("blocked_dates", {
     .default(sql`(datetime('now'))`),
 });
 export type BlockedDateRow = typeof blockedDates.$inferSelect;
+
+// Global (non-locale) site configuration — social links, map embed URL, Place ID.
+export const siteConfig = sqliteTable("site_config", {
+  key: text("key").notNull().primaryKey(),
+  value: text("value").notNull(),
+  updatedAt: text("updated_at")
+    .notNull()
+    .default(sql`(datetime('now'))`),
+  updatedBy: text("updated_by"),
+});
+export type SiteConfigRow = typeof siteConfig.$inferSelect;
