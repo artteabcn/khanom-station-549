@@ -2,6 +2,7 @@ import React from "react";
 import { getTranslations, getLocale } from "next-intl/server";
 import { getGoogleReviews } from "@/lib/google-reviews";
 import type { GoogleReview } from "@/lib/google-reviews";
+import { getSiteConfig } from "@/lib/content";
 import ReviewsCarousel from "./ReviewsCarousel";
 import type { ReviewItem } from "./ReviewsCarousel";
 
@@ -57,9 +58,7 @@ export default async function TestimonialsSection(): Promise<React.JSX.Element> 
   const locale = await getLocale();
   const staticItems = t.raw("items") as TestimonialItem[];
   const googleData = await getGoogleReviews(locale);
-
   const showGoogle = googleData.reviews.length > 0;
-
   const googleMapsUrl = process.env.GOOGLE_PLACE_ID
     ? `https://www.google.com/maps/place/?q=place_id:${process.env.GOOGLE_PLACE_ID}`
     : undefined;
