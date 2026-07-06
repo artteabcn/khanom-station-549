@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "opennextjs-cloudflare build && mv .open-next/worker.js .open-next/_worker.js && cp -r .open-next/assets/. .open-next/ && node -e \"const fs=require('fs');fs.writeFileSync('.open-next/_routes.json',JSON.stringify({version:1,include:['/*'],exclude:['/_next/static/*','/_next/image/*','/images/*','/logo.png','/favicon.ico','/robots.txt','/sitemap.xml']}))\"",
-    "build:next": "next build",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint src --max-warnings 0",
     "format": "prettier --write .",
