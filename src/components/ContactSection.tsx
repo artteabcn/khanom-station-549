@@ -105,7 +105,7 @@ export default function ContactSection(): React.JSX.Element {
 
             <div className="bg-brand-sage-light h-40 overflow-hidden rounded-2xl ring-1 ring-black/5">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15807.06!2d99.8400!3d9.1900!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMjgnMjYuNSJOIDEwMMKwMDMnMTUuMCJF!5e0!3m2!1sen!2sth!4v1700000000000"
+                src="https://maps.app.goo.gl/vZ6Qs5CHDogE3rjA7"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
