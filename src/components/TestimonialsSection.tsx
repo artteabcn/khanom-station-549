@@ -59,9 +59,10 @@ export default async function TestimonialsSection(): Promise<React.JSX.Element> 
   const staticItems = t.raw("items") as TestimonialItem[];
   const googleData = await getGoogleReviews(locale);
   const showGoogle = googleData.reviews.length > 0;
-  const googleMapsUrl = process.env.GOOGLE_PLACE_ID
-    ? `https://www.google.com/maps/place/?q=place_id:${process.env.GOOGLE_PLACE_ID}`
-    : undefined;
+const { googlePlaceId } = await getSiteConfig();
+const googleMapsUrl = googlePlaceId
+  ? `https://www.google.com/maps/place/?q=place_id:${googlePlaceId}`
+  : undefined;
 
   const displayItems: ReviewItem[] = showGoogle
     ? googleData.reviews.map((r: GoogleReview) => ({
