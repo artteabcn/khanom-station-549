@@ -24,6 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const title = t("home.title");
   const description = t("home.description");
   const url = localePath(locale);
+  
 
   return {
     title,
@@ -100,6 +101,7 @@ function LodgingJsonLd({ locale }: { locale: string }): React.JSX.Element {
 export default async function HomePage({ params }: PageProps): Promise<React.JSX.Element> {
   const { locale } = await params;
   const logoUrl = await getImageUrl("logo", "/logo.png");
+   const { mapEmbedUrl } = await getSiteConfig();
   return (
     <main>
       <LodgingJsonLd locale={locale} />
@@ -110,7 +112,7 @@ export default async function HomePage({ params }: PageProps): Promise<React.JSX
       <AmenitiesSection />
       <TestimonialsSection />
       <GalleryGrid />
-      <ContactSection />
+      <ContactSection mapEmbedUrl={mapEmbedUrl} />
       <Footer />
       <WhatsAppButton />
     </main>
