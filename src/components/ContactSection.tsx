@@ -65,3 +65,136 @@ export default function ContactSection({ mapEmbedUrl }: ContactSectionProps): Re
         <div className="mt-10 grid gap-10 lg:grid-cols-2">
           {/* Contact info */}
           <div className="flex flex-col gap-5">
+            {contactItems.map(({ icon: Icon, label, href }) => (
+              <div key={label} className="flex items-start gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center">
+                  <Icon className="text-brand-pink size-5" />
+                </div>
+                {href ? (
+                  <a href={href} className="hover:text-brand-pink mt-1 text-gray-700">
+                    {label}
+                  </a>
+                ) : (
+                  <p className="mt-1 text-gray-700">{label}</p>
+                )}
+              </div>
+            ))}
+
+            <div className="flex flex-wrap items-center gap-3">
+              
+                href={`https://wa.me/${SITE.phone.waMe}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              >
+                <MessageCircle className="size-5" />
+                {t("whatsapp")}
+              </a>
+              
+                href={SOCIAL_LINKS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1877F2] text-white transition-opacity hover:opacity-90"
+              >
+                <FacebookIcon className="h-5 w-5" />
+              </a>
+              
+                href={SOCIAL_LINKS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-tr from-[#fdc468] via-[#dc2743] to-[#bc1888] text-white transition-opacity hover:opacity-90"
+              >
+                <InstagramIcon className="h-5 w-5" />
+              </a>
+            </div>
+
+            <div className="bg-brand-sage-light h-40 overflow-hidden rounded-2xl ring-1 ring-black/5">
+              <iframe
+                src={mapEmbedUrl || FALLBACK_MAP_URL}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Khanom Station 549 location"
+              />
+            </div>
+          </div>
+
+          {/* Contact form */}
+          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
+            <div>
+              <input
+                {...register("name")}
+                placeholder={tf("name")}
+                className={cn(
+                  "focus:border-brand-pink w-full rounded-xl border bg-white px-4 py-3 text-sm transition-colors outline-none",
+                  errors.name ? "border-red-400" : "border-gray-200"
+                )}
+              />
+              {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name.message}</p>}
+            </div>
+
+            <div>
+              <input
+                {...register("email")}
+                type="email"
+                placeholder={tf("email")}
+                className={cn(
+                  "focus:border-brand-pink w-full rounded-xl border bg-white px-4 py-3 text-sm transition-colors outline-none",
+                  errors.email ? "border-red-400" : "border-gray-200"
+                )}
+              />
+              {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>}
+            </div>
+
+            <div>
+              <input
+                {...register("phone")}
+                placeholder={tf("phone")}
+                className="focus:border-brand-pink w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm transition-colors outline-none"
+              />
+            </div>
+
+            <div>
+              <textarea
+                {...register("message")}
+                rows={5}
+                placeholder={tf("message")}
+                className={cn(
+                  "focus:border-brand-pink w-full resize-none rounded-xl border bg-white px-4 py-3 text-sm transition-colors outline-none",
+                  errors.message ? "border-red-400" : "border-gray-200"
+                )}
+              />
+              {errors.message && (
+                <p className="mt-1 text-xs text-red-500">{errors.message.message}</p>
+              )}
+            </div>
+
+            {status === "success" && (
+              <p className="rounded-xl bg-green-50 px-4 py-3 text-sm text-green-700 ring-1 ring-green-200">
+                {tf("success")}
+              </p>
+            )}
+            {status === "error" && (
+              <p className="rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700 ring-1 ring-red-200">
+                {tf("error")}
+              </p>
+            )}
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="btn-pill-primary mt-2 disabled:opacity-60"
+            >
+              {isSubmitting ? tf("sending") : tf("submit")}
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+}
