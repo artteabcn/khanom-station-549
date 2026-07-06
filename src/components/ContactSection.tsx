@@ -104,16 +104,16 @@ export default function ContactSection(): React.JSX.Element {
             </div>
 
             <div className="bg-brand-sage-light h-40 overflow-hidden rounded-2xl ring-1 ring-black/5">
-              <iframe
-                src="https://maps.app.goo.gl/vZ6Qs5CHDogE3rjA7"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Khanom Station 549 location"
-              />
+             <iframe
+  src="https://maps.google.com/maps?q=9.1560168,99.8604639&z=16&output=embed"
+  width="100%"
+  height="100%"
+  style={{ border: 0 }}
+  allowFullScreen
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+  title="Khanom Station 549 location"
+/>
             </div>
           </div>
 
