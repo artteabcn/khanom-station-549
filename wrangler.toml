@@ -4,6 +4,9 @@ compatibility_flags = ["nodejs_compat"]
 
 pages_build_output_dir = ".open-next"
 
+[build]
+command = "pnpm run build:cf"
+
 [[d1_databases]]
 binding = "DB"
 database_name = "khanom-station-549"
