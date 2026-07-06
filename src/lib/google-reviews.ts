@@ -1,7 +1,6 @@
 import { eq } from "drizzle-orm";
 import { googleReviewsCache } from "@/db/schema";
 import { getDbOrNull } from "@/lib/db/get-db";
-import { getSiteConfig } from "@/lib/content";
 import { routing } from "@/i18n/routing";
 
 export interface GoogleReview {
@@ -38,7 +37,7 @@ interface PlacesApiResponse {
 
 async function fetchFromGoogle(language: string): Promise<GoogleReviewsData> {
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
-  const { googlePlaceId: placeId } = await getSiteConfig();
+  const placeId = process.env.GOOGLE_PLACE_ID;
   if (!apiKey || !placeId) return { reviews: [] };
 
   try {
