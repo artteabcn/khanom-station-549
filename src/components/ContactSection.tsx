@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import { useTranslations } from "next-intl";
@@ -49,8 +49,8 @@ export default function ContactSection({ mapEmbedUrl }: ContactSectionProps): Re
 
   const contactItems = [
     { icon: MapPin, label: t("address") },
-    { icon: Phone, label: t("phone"), href: `tel:${t("phone").replace(/\s/g, "")}` },
-    { icon: Mail, label: t("email"), href: `mailto:${t("email")}` },
+    { icon: Phone, label: t("phone"), href: "tel:" + t("phone").replace(/\s/g, "") },
+    { icon: Mail, label: t("email"), href: "mailto:" + t("email") },
   ];
 
   return (
@@ -82,7 +82,7 @@ export default function ContactSection({ mapEmbedUrl }: ContactSectionProps): Re
 
             <div className="flex flex-wrap items-center gap-3">
               
-                href={`https://wa.me/${SITE.phone.waMe}`}
+                href={"https://wa.me/" + SITE.phone.waMe}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
