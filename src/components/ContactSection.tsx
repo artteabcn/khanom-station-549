@@ -80,35 +80,40 @@ export default function ContactSection({ mapEmbedUrl }: ContactSectionProps): Re
               </div>
             ))}
 
-            <div className="flex flex-wrap items-center gap-3">
-              
-                href={"https://wa.me/" + SITE.phone.waMe}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-              {">"}
-                <MessageCircle className="size-5" />
-                {t("whatsapp")}
-              </a>
-              
-                href={SOCIAL_LINKS.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1877F2] text-white transition-opacity hover:opacity-90"
-              {">"}
-                <FacebookIcon className="h-5 w-5" />
-              </a>
-              
-                href={SOCIAL_LINKS.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-tr from-[#fdc468] via-[#dc2743] to-[#bc1888] text-white transition-opacity hover:opacity-90"
-              {">"}
-                <InstagramIcon className="h-5 w-5" />
-              </a>
-            </div>
+           <div className="flex flex-wrap items-center gap-3">
+  {/* WhatsApp Link */}
+  <a
+    href={`https://wa.me/${SITE.phone.waMe}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-3 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+  >
+    <MessageCircle className="size-5" />
+    {t("whatsapp")}
+  </a>
+
+  {/* Facebook Link */}
+  <a
+    href={SOCIAL_LINKS.facebook}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Facebook"
+    className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1877F2] text-white transition-opacity hover:opacity-90"
+  >
+    <FacebookIcon className="h-5 w-5" />
+  </a>
+
+  {/* Instagram Link */}
+  <a
+    href={SOCIAL_LINKS.instagram}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
+    className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-tr from-[#fdc468] via-[#dc2743] to-[#bc1888] text-white transition-opacity hover:opacity-90"
+  >
+    <InstagramIcon className="h-5 w-5" />
+  </a>
+</div>
 
             <div className="bg-brand-sage-light h-40 overflow-hidden rounded-2xl ring-1 ring-black/5">
               <iframe
