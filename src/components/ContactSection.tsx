@@ -86,6 +86,7 @@ export default function ContactSection({ mapEmbedUrl }: ContactSectionProps): Re
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              {">"}
                 <MessageCircle className="size-5" />
                 {t("whatsapp")}
               </a>
@@ -95,6 +96,7 @@ export default function ContactSection({ mapEmbedUrl }: ContactSectionProps): Re
                 rel="noopener noreferrer"
                 aria-label="Facebook"
                 className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1877F2] text-white transition-opacity hover:opacity-90"
+              {">"}
                 <FacebookIcon className="h-5 w-5" />
               </a>
               
@@ -103,6 +105,7 @@ export default function ContactSection({ mapEmbedUrl }: ContactSectionProps): Re
                 rel="noopener noreferrer"
                 aria-label="Instagram"
                 className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-tr from-[#fdc468] via-[#dc2743] to-[#bc1888] text-white transition-opacity hover:opacity-90"
+              {">"}
                 <InstagramIcon className="h-5 w-5" />
               </a>
             </div>
